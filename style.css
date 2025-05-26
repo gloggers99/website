@@ -48,6 +48,10 @@ a:hover {
     scale: 105%;
 }
 
+#home-container-pfp {
+    border-radius: 25%;
+}
+
 .container {
     flex: 1;
     opacity: 0;
