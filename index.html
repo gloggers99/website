@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Lucas Marta</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Lucas Marta | Software Engineer & Systems Programmer</title>
+    <meta property="og:title" content="Lucas Marta">
+    <meta property="og:description" content="17-year-old software engineer specializing in systems programming, backend development, and performance-critical applications.">
+    <meta property="og:url" content="https://gloggers.net">
     <link rel="stylesheet" href="style.css">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <meta content="Lucas Marta" property="og:title">
-    <meta content="Lucas Marta's personal website" property="og:description">
-    <meta content="https://gloggers.net" property="og:url">
 
     <script src="email.js"></script>
     <script src="page_switch.js"></script>
@@ -15,7 +15,7 @@
 </head>
 <body>
     <div id="website-toolbar">
-        <h3 class="current_page" id="website-toolbar-home">
+        <h3 class="current-page" id="website-toolbar-home">
             Home
         </h3>
         <h3 id="website-toolbar-projects">
@@ -31,28 +31,104 @@
         </div>
     </div>
 
-    <div class="container current_page active" id="home-container">
-        <div id="home-container-center">
-            <img id="home-container-pfp" src="dog.jpg" width="50" height="50" alt="dog">
-            
-            <h1>
-                Lucas Marta
-            </h1>
+    <div class="container current-page active" id="home-container">
+        <div id="home-container-content">
+            <div id="home-header">
+                <img id="home-container-pfp" src="dog.jpg" width="80" height="80" alt="Lucas Marta profile picture">
+                <div id="home-header-text">
+                    <h1>Lucas Marta</h1>
+                    <p class="home-subtitle">Software Engineer & Systems Programmer</p>
+                    <div id="home-header-info">
+                        <p class="home-location">📍 California | 🎂 17 years old</p>
+                        <a id="email-element-container" href="mailto:lucas.marta0799@gmail.com">
+                            <p id="email-element" class="home-email-header">✉️ lucas.marta0799@gmail.com</p>
+                        </a>
+                        <div id="home-header-social-links">
+                            <a class="logo" href="https://github.com/gloggers99" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"></path></svg>
+                            </a>
+                            <a class="logo" href="https://www.linkedin.com/in/lucas-marta-498b2b32b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                            </a>
+                            <a class="logo" href="https://instagram.com/lucas.gloggers" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <a id="email-element-container" href="mailto:lucas.marta0799@gmail.com">
-                <h3 id="email-element">lucas.marta0799@gmail.com</h3>
-            </a>
+            <div id="home-about">
+                <h2>About Me</h2>
+                <p>
+                    I'm a passionate programmer specializing in lower-level development including
+                    operating systems, backend systems, and performance-critical applications. I work with languages like
+                    <strong>C</strong>, <strong>C++</strong>, <strong>Rust</strong>, and many more. I've been programming since I was 9 years old,
+                    and I hope to eventually put my skills to use for a big fancy company or start my own!
+                </p>
+                <p>
+                    Currently, I'm employed at a fantastic Code Ninjas franchise where I share my knowledge
+                    with those younger than me.
+                </p>
+            </div>
 
-            <div id="home-container-center-links">
-                <a class="logo" href="https://github.com/gloggers99" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"></path></svg>
-                </a>
-                <a class="logo" href="https://instagram.com/lucas.gloggers" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg>
-                </a>
-                <a class="logo" href="https://www.linkedin.com/in/lucas-marta-498b2b32b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                </a>
+            <div id="home-skills">
+                <h2>Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Languages</h3>
+                        <ul>
+                            <li>C / C++</li>
+                            <li>Rust</li>
+                            <li>JavaScript / TypeScript</li>
+                            <li>Python</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Areas of Expertise</h3>
+                        <ul>
+                            <li>Systems Programming</li>
+                            <li>Backend Development</li>
+                            <li>OpenGL / Graphics</li>
+                            <li>REST APIs</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Technologies</h3>
+                        <ul>
+                            <li>Actix-web</li>
+                            <li>PostgreSQL</li>
+                            <li>Docker</li>
+                            <li>OpenGL</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="home-featured">
+                <h2>Featured Projects</h2>
+                <div class="featured-projects">
+                    <div class="featured-project">
+                        <h3>🔐 cogito_api</h3>
+                        <p>Rust-based REST API backend using actix-web, featuring Argon2id password hashing and containerized PostgreSQL for maximum speed and security.</p>
+                        <a href="https://github.com/gloggers99/cogito_api" target="_blank" rel="noopener noreferrer">View Project →</a>
+                    </div>
+                    <div class="featured-project">
+                        <h3>⚡ obj</h3>
+                        <p>Blazingly fast .obj file importer written in pure C, showcasing high-performance file parsing and low-level optimization techniques.</p>
+                        <a href="https://github.com/gloggers99/obj" target="_blank" rel="noopener noreferrer">View Project →</a>
+                    </div>
+                    <div class="featured-project">
+                        <h3>🎨 GFX</h3>
+                        <p>OpenGL rendering engine in C++ with custom .obj/.mtl importer and cross-platform multithreaded shader hot-reloading system.</p>
+                        <a href="https://github.com/gloggers99/gfx" target="_blank" rel="noopener noreferrer">View Project →</a>
+                    </div>
+                    <div class="featured-project">
+                        <h3>🌐 cppml</h3>
+                        <p>HTML DSL for C++ demonstrating advanced metaprogramming and enabling type-safe, structured HTML generation.</p>
+                        <a href="https://github.com/gloggers99/cppml" target="_blank" rel="noopener noreferrer">View Project →</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
