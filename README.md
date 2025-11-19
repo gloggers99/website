@@ -1,2 +1,1 @@
-# lucasmarta.com
-This repository holds the code behind my personal website.
+# The code behind [my website](https://lucasmarta.com)

@@ -1,24 +1,24 @@
-const possible_emails = [
-    "lucas.marta0799@gmail.com",
-    "lucas@gloggers.net"
+const possibleEmails = [
+    'lucas.marta0799@gmail.com',
 ];
 
 setInterval(() => {
-    const email_element = document.getElementById("email-element");
-    const email_container = document.getElementById("email-element-container");
-    if (!email_element || !email_container) return;
+    const emailElement = document.getElementById('email-element');
+    const emailContainer = document.getElementById('email-element-container');
+
+    if (!emailElement || !emailContainer) return;
 
     // Fade out
-    email_element.classList.add("fade-out");
+    emailElement.classList.add('fade-out');
 
     setTimeout(() => {
-        const current_index = possible_emails.indexOf(email_element.innerHTML);
-        const next_index = (current_index + 1) % possible_emails.length;
+        const currentIndex = possibleEmails.indexOf(emailElement.innerHTML);
+        const nextIndex = (currentIndex + 1) % possibleEmails.length;
 
-        email_container.href = "mailto:" + possible_emails[next_index];
-        email_element.innerHTML = possible_emails[next_index];
+        emailContainer.href = `mailto:${possibleEmails[nextIndex]}`;
+        emailElement.innerHTML = possibleEmails[nextIndex];
 
         // Fade in
-        email_element.classList.remove("fade-out");
-    }, 250); // Match the CSS transition duration
+        emailElement.classList.remove('fade-out');
+    }, 250);
 }, 5000);
