@@ -1,18 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
+@import "@catppuccin/tailwindcss/mocha.css";
 
 html, body, #root {
     margin: 0;
     padding: 0;
     min-height: 100%;
-    width: 100%;
-    background-color: #111827;
+    font-family: "Manrope", sans-serif;
+}
+
+.text-gradient {
+    background: linear-gradient(90deg, #facc15, #ec4899); /* yellow → pink vibe */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+p {
+    color: #cdd6f4;
 }
 
 body {
     overflow-y: scroll;
 }
 
-/* Custom scrollbar styling */
 ::-webkit-scrollbar {
     width: 10px;
 }

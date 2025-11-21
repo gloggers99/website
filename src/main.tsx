@@ -1,295 +1,259 @@
-import { StrictMode, useEffect, useState } from 'react'
+import { StrictMode, useState, useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
+import {FaGithub, FaLinkedin, FaInstagram, FaRust, FaPython, FaReact, FaJava} from 'react-icons/fa'
+import {SiCplusplus, SiTypescript} from "react-icons/si";
+import { MdMail } from "react-icons/md";
+import { BsPinAngleFill } from "react-icons/bs";
+import './index.css';
+import type {IconType} from "react-icons";
+import {DiHaskell, DiVisualstudio} from "react-icons/di";
 
-interface Repository {
+interface GitHubRepo {
+    id: number;
     name: string;
+    full_name: string;
     html_url: string;
     description: string;
-    topics: string[];
     stargazers_count: number;
     language: string;
+    topics: string[];
     archived: boolean;
+    updated_at: string;
+}
+
+function SocialLink({ href, Icon }: { href: string, Icon: IconType }) {
+    return (
+        <div className={"hover:scale-110 duration-300"}>
+            <p className={"font-bold text-sm sm:text-base"}>
+                <a className={"text-ctp-lavender"}
+                   href={href}
+                   target={"_blank"}>
+                    <Icon className={"w-8 h-8 sm:w-7 sm:h-7"} />
+                </a>
+            </p>
+        </div>
+    )
+}
+
+function SocialLinks() {
+    return (
+        <div className={"flex flex-wrap items-end gap-2 sm:gap-x-2 justify-center"}>
+            <SocialLink
+                href={"https://www.linkedin.com/in/lucas-marta-498b2b32b/"}
+                Icon={FaLinkedin}
+            />
+
+            <SocialLink
+                href={"https://github.com/gloggers99"}
+                Icon={FaGithub}
+            />
+            <SocialLink
+                href={"https://instagram.com/lucas.gloggers"}
+                Icon={FaInstagram}
+            />
+            <SocialLink
+                href={"mailto:lucas.marta0799@gmail.com"}
+                Icon={MdMail}
+            />
+        </div>
+    )
 }
 
 function Header() {
     return (
-        <header className="mb-16">
-            <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-                Lucas Marta
-            </h1>
-            <p className="text-2xl text-gray-300 mb-6">
-                Programmer | Developer | Engineer
-            </p>
-            <div className="flex gap-4">
-                <a
-                    href="https://github.com/gloggers99"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-6 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors duration-200 flex items-center gap-2"
-                >
-                    <span>🐙</span> GitHub
-                </a>
-                <a
-                    href="https://www.linkedin.com/in/lucas-marta-498b2b32b"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-6 py-2 bg-blue-600 hover:bg-blue-500 rounded-lg transition-colors duration-200 flex items-center gap-2"
-                >
-                    <span>💼</span> LinkedIn
-                </a>
+        <div className={"flex flex-col gap-4 sm:gap-x-5 w-full"}>
+            <div className={"flex flex-col items-center"}>
+                <p className={"text-6xl font-semibold text-gradient"}>Lucas Marta</p>
+                <p className={"text-sm sm:text-base"}>Programmer | Developer</p>
             </div>
-        </header>
+            <SocialLinks />
+        </div>
+    )
+}
+
+function Language({name, Icon, color}: {name: string, Icon: IconType, color?: string}) {
+    return (
+        <span className="inline-flex items-center gap-1">
+            <span className={color}>{name}</span>
+            <Icon className="w-4 h-4 sm:w-3 sm:h-3" />
+        </span>
+    )
+}
+
+function Title({text}: {text: string}) {
+    return (
+        <p className={"text-2xl sm:text-3xl font-bold text-ctp-surface w-fit mb-4"}>{text}</p>
     )
 }
 
 function About() {
     return (
-        <section className="mb-16">
-            <h2 className="text-3xl font-bold mb-4 text-gray-100">About Me</h2>
-            <div className="text-gray-300 space-y-4 max-w-3xl">
+        <div>
+            <Title text={"About Me"} />
+            <div className={"sm:max-w-3/4"}>
                 <p>
-                    I'm a 17-year-old programmer living in California. I enjoy working on lower-level projects
-                    (operating system stuff, backend stuff, etc.) in languages like C, C++, Rust & many more.
+                    I'm a <p className={"inline bg-amber-950"}>17-year-old</p> programmer living in California.
                 </p>
+
+                <br />
+
                 <p>
-                    I've been programming since I was 9 years old and I hope to eventually put my skills to use
-                    for a big fancy company or start my own! Who knows!
+                    I enjoy working on system-level projects in languages
+                    like <Language name={"C/C++"} Icon={SiCplusplus} color={"text-ctp-blue"} />
+                    , <Language name={"Rust"} Icon={FaRust} color={"text-ctp-red"} />
+                    , <Language name={"Python"} Icon={FaPython} color={"text-ctp-green"} />. I also dabble in web stuff
+                    with <Language name={"TypeScript"} Icon={SiTypescript} color={"text-ctp-yellow"} /> + <Language name={"React"} Icon={FaReact} color={"text-white"}/> to make things
+                    like this! Additionally I have experience with <Language name={"Java"} Icon={FaJava} color={"text-ctp-maroon"} />
+                    , <Language name={"C Sharp"} Icon={DiVisualstudio} color={"text-ctp-sapphire"} />
+                    , <Language name={"Haskell"} Icon={DiHaskell} color={"text-ctp-mauve"} />, and more.
                 </p>
+
+                <br />
+
                 <p>
-                    Currently, I am employed by a fantastic Code Ninja's franchise, where I share my knowledge
-                    with those younger than me.
+                    Currently, I am employed by a fantastic <a className={"bg-amber-950"} href={"https://www.codeninjas.com/"}>Code Ninja's</a> franchise,
+                    where I share my knowledge with those younger than me.
                 </p>
             </div>
-        </section>
+        </div>
     )
 }
 
-function FeaturedProjects() {
-    const [repos, setRepos] = useState<Repository[]>([]);
+function Projects() {
+    const [repos, setRepos] = useState<GitHubRepo[]>([]);
     const [loading, setLoading] = useState(true);
-
-    // Pinned project
-    const pinnedProject = {
-        name: "cogito_api",
-        html_url: "https://github.com/gloggers99/cogito_api",
-        description: "The rust-based backend for William Chastain's philosophy research AI agent. It is a REST API written for pure speed and security using the actix-web framework. It uses the Argon2id password hashing algorithm and a containerized PostgreSQL database with much more fancy stuff implemented as well.",
-        topics: ["rust", "api", "backend", "philosophy", "rest"],
-        stargazers_count: 0,
-        language: "Rust",
-        archived: false
-    };
+    const [cogitoRepo, setCogitoRepo] = useState<GitHubRepo | null>(null);
 
     useEffect(() => {
-        fetch('https://api.github.com/users/gloggers99/repos?sort=updated&per_page=100')
-            .then(res => res.json())
-            .then((data: Repository[]) => {
-                // Filter and sort repos, excluding the pinned one
-                const featured = data
-                    .filter(repo =>
-                        repo.name !== 'gloggers99' && // Exclude profile repo
-                        repo.name !== 'cogito_api' && // Exclude pinned project
-                        !repo.archived && // Exclude archived repos initially
-                        repo.description // Has a description
-                    )
-                    .sort((a, b) => {
-                        // Sort by stars first, then by recent activity
-                        if (b.stargazers_count !== a.stargazers_count) {
-                            return b.stargazers_count - a.stargazers_count;
-                        }
-                        return 0;
-                    })
-                    .slice(0, 5); // Take top 5 (since we have 1 pinned)
+        const fetchRepos = async () => {
+            try {
+                // Fetch all repositories
+                const response = await fetch('https://api.github.com/users/gloggers99/repos?per_page=100&sort=updated');
+                const allRepos: GitHubRepo[] = await response.json();
 
-                setRepos(featured);
+                // Find cogito_api
+                const cogito = allRepos.find(repo => repo.name === 'cogito_api');
+                if (cogito) {
+                    setCogitoRepo(cogito);
+                }
+
+                // Filter and sort by stars, limit to 4
+                const filteredRepos = allRepos
+                    .filter(repo => repo.name !== 'cogito_api') // Exclude cogito_api from main list
+                    .sort((a, b) => b.stargazers_count - a.stargazers_count)
+                    .slice(0, 7); // Limit to 4 repos
+
+                setRepos(filteredRepos);
                 setLoading(false);
-            })
-            .catch(err => {
-                console.error('Failed to fetch repos:', err);
+            } catch (error) {
+                console.error('Error fetching repositories:', error);
                 setLoading(false);
-            });
+            }
+        };
+
+        fetchRepos();
     }, []);
 
     if (loading) {
         return (
-            <section className="mb-16">
-                <h2 className="text-3xl font-bold mb-6 text-gray-100">Featured Projects</h2>
-                <div className="text-gray-400">Loading projects...</div>
-            </section>
+            <div className="w-full">
+                <Title text={"Projects"} />
+                <p className="text-ctp-subtext0">Loading projects...</p>
+            </div>
         );
     }
 
     return (
-        <section className="mb-16">
-            <h2 className="text-3xl font-bold mb-6 text-gray-100">Featured Projects</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Pinned Project */}
-                <a
-                    href={pinnedProject.html_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-gray-800 hover:bg-gray-750 p-6 rounded-lg transition-all duration-200 hover:scale-105 hover:shadow-xl border-2 border-purple-500 hover:border-purple-400 relative"
-                >
-                    <div className="absolute top-4 right-4 text-2xl">
-                        📌
-                    </div>
-                    <div className="flex items-start justify-between mb-3 pr-8">
-                        <h3 className="text-xl font-bold text-blue-400">{pinnedProject.name}</h3>
-                        {pinnedProject.stargazers_count > 0 && (
-                            <span className="flex items-center gap-1 text-yellow-400 text-sm">
-                                ⭐ {pinnedProject.stargazers_count}
-                            </span>
-                        )}
-                    </div>
-                    <p className="text-gray-300 mb-4 text-sm leading-relaxed">
-                        {pinnedProject.description}
-                    </p>
-                    <div className="flex flex-col gap-2">
-                        {pinnedProject.language && (
-                            <div className="flex items-center gap-2">
-                                <span className="text-xs text-gray-500 font-semibold">LANGUAGE:</span>
-                                <span className="px-3 py-1 bg-blue-600 text-white text-xs rounded-full font-medium">
-                                    {pinnedProject.language}
-                                </span>
-                            </div>
-                        )}
-                        {pinnedProject.topics.length > 0 && (
-                            <div className="flex items-start gap-2">
-                                <span className="text-xs text-gray-500 font-semibold pt-1">TOPICS:</span>
-                                <div className="flex flex-wrap gap-2">
-                                    {pinnedProject.topics.slice(0, 4).map((topic) => (
-                                        <span
-                                            key={topic}
-                                            className="px-3 py-1 bg-gray-700 text-gray-200 text-xs rounded-full"
-                                        >
-                                            {topic}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
-                    </div>
-                </a>
+        <div className="w-full">
+            <Title text={"Projects"} />
 
-                {/* Dynamic Projects */}
-                {repos.map((repo) => (
-                    <a
-                        key={repo.name}
-                        href={repo.html_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-gray-800 hover:bg-gray-750 p-6 rounded-lg transition-all duration-200 hover:scale-105 hover:shadow-xl border border-gray-700 hover:border-gray-600"
-                    >
-                        <div className="flex items-start justify-between mb-3">
-                            <h3 className="text-xl font-bold text-blue-400">{repo.name}</h3>
-                            {repo.stargazers_count > 0 && (
-                                <span className="flex items-center gap-1 text-yellow-400 text-sm">
-                                    ⭐ {repo.stargazers_count}
-                                </span>
-                            )}
-                        </div>
-                        <p className="text-gray-300 mb-4 text-sm leading-relaxed">
-                            {repo.description || 'No description available'}
-                        </p>
-                        <div className="flex flex-col gap-2">
-                            {repo.language && (
-                                <div className="flex items-center gap-2">
-                                    <span className="text-xs text-gray-500 font-semibold">LANGUAGE:</span>
-                                    <span className="px-3 py-1 bg-blue-600 text-white text-xs rounded-full font-medium">
-                                        {repo.language}
-                                    </span>
-                                </div>
-                            )}
-                            {repo.topics.length > 0 && (
-                                <div className="flex items-start gap-2">
-                                    <span className="text-xs text-gray-500 font-semibold pt-1">TOPICS:</span>
-                                    <div className="flex flex-wrap gap-2">
-                                        {repo.topics.slice(0, 4).map((topic) => (
-                                            <span
-                                                key={topic}
-                                                className="px-3 py-1 bg-gray-700 text-gray-200 text-xs rounded-full"
-                                            >
-                                                {topic}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
-                            )}
-                        </div>
-                    </a>
+            <p className={"max-w-3/4"}>
+                Here are some of my most popular projects on GitHub. I've pinned <code>cogito_api</code> as it is my
+                primary project right now and I'm actively developing it.
+            </p>
+
+            <br />
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                {/* Pinned cogito_api project */}
+                {cogitoRepo && (
+                    <ProjectCard repo={cogitoRepo} isPinned={true} />
+                )}
+
+                {/* All other projects sorted by stars */}
+                {repos.map(repo => (
+                    <ProjectCard key={repo.id} repo={repo} isPinned={false} />
                 ))}
             </div>
-        </section>
+        </div>
     )
 }
 
-function Skills() {
-    const skills = [
-        {
-            category: "Languages",
-            items: [
-                { name: "C", icon: "c", color: "#A8B9CC" },
-                { name: "C++", icon: "cplusplus", color: "#00599C" },
-                { name: "Rust", icon: "rust", color: "#CE422B" },
-                { name: "Go", icon: "go", color: "#00ADD8" },
-                { name: "Python", icon: "python", color: "#3776AB" },
-                { name: "TypeScript", icon: "typescript", color: "#3178C6" }
-            ]
-        },
-        {
-            category: "Backend",
-            items: [
-                { name: "Actix-Web", icon: "rust", color: "#CE422B" },
-                { name: "Flask", icon: "flask", color: "#000000" },
-                { name: "PostgreSQL", icon: "postgresql", color: "#4169E1" },
-                { name: "gRPC", icon: "grpc", color: "#4285F4" },
-                { name: "OpenAPI", icon: "openapiinitiative", color: "#6BA539" }
-            ]
-        },
-        {
-            category: "Frontend",
-            items: [
-                { name: "React", icon: "react", color: "#61DAFB" },
-                { name: "Tailwind CSS", icon: "tailwindcss", color: "#06B6D4" },
-                { name: "HTML", icon: "html5", color: "#E34F26" },
-                { name: "CSS", icon: "css3", color: "#1572B6" }
-            ]
-        },
-        {
-            category: "Other",
-            items: [
-                { name: "Git", icon: "git", color: "#F05032" },
-                { name: "Docker", icon: "docker", color: "#2496ED" },
-                { name: "Linux", icon: "linux", color: "#FCC624" }
-            ]
-        }
-    ]
+function ProjectCard({ repo, isPinned }: { repo: GitHubRepo, isPinned: boolean }) {
+    const [showArchived, setShowArchived] = useState(false);
 
     return (
-        <section className="mb-16">
-            <h2 className="text-3xl font-bold mb-6 text-gray-100">Skills & Technologies</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {skills.map((skillGroup) => (
-                    <div key={skillGroup.category} className="bg-gray-800 p-5 rounded-lg border border-gray-700">
-                        <h3 className="text-lg font-semibold mb-3 text-purple-400">{skillGroup.category}</h3>
-                        <ul className="space-y-2">
-                            {skillGroup.items.map((item) => (
-                                <li key={item.name} className="text-gray-300 text-sm flex items-center gap-2">
-                                    <img
-                                        src={`https://cdn.simpleicons.org/${item.icon}`}
-                                        alt={item.name}
-                                        className="w-4 h-4"
-                                        style={{ filter: 'brightness(0) invert(1)' }}
-                                    />
-                                    <span>{item.name}</span>
-                                </li>
-                            ))}
-                        </ul>
+        <div
+            className={`relative border border-ctp-surface0 rounded-lg p-4 hover:border-ctp-lavender transition-all duration-200 ${
+                repo.archived ? 'bg-ctp-mantle/50' : 'bg-ctp-mantle'
+            }`}
+            onMouseEnter={() => repo.archived && setShowArchived(true)}
+            onMouseLeave={() => setShowArchived(false)}
+        >
+            {/* Pinned badge */}
+            {isPinned && (
+                <div className="absolute top-2 right-2">
+                    <BsPinAngleFill className="w-5 h-5 text-ctp-yellow" />
+                </div>
+            )}
+
+            {/* Archived tooltip */}
+            {showArchived && repo.archived && (
+                <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-ctp-surface0 text-ctp-text px-3 py-1 rounded text-sm whitespace-nowrap z-10">
+                    📦 Archived
+                </div>
+            )}
+
+            <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="block">
+                <h3 className="text-lg font-semibold text-ctp-lavender mb-2 break-words">
+                    {repo.name}
+                </h3>
+                <p className="text-sm text-ctp-subtext0 mb-3 line-clamp-2 min-h-[2.5rem]">
+                    {repo.description || 'No description available'}
+                </p>
+
+                {/* Language and Stars */}
+                <div className="flex items-center gap-3 mb-2 text-xs">
+                    {repo.language && (
+                        <span className="flex items-center gap-1 text-ctp-text">
+                            <span className="w-3 h-3 rounded-full bg-ctp-blue"></span>
+                            {repo.language}
+                        </span>
+                    )}
+                    <span className="text-ctp-yellow">⭐ {repo.stargazers_count}</span>
+                </div>
+
+                {/* Topics */}
+                {repo.topics && repo.topics.length > 0 && (
+                    <div className="flex flex-wrap gap-1 mt-2">
+                        {repo.topics.slice(0, 3).map(topic => (
+                            <span
+                                key={topic}
+                                className="text-xs bg-ctp-surface0 text-ctp-blue px-2 py-1 rounded"
+                            >
+                                {topic}
+                            </span>
+                        ))}
+                        {repo.topics.length > 3 && (
+                            <span className="text-xs text-ctp-subtext0">
+                                +{repo.topics.length - 3}
+                            </span>
+                        )}
                     </div>
-                ))}
-            </div>
-        </section>
-    )
+                )}
+            </a>
+        </div>
+    );
 }
 
 function Footer() {
@@ -302,14 +266,11 @@ function Footer() {
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
-        <div className="min-h-screen w-full bg-gray-900 text-white">
-            <div className="max-w-7xl mx-auto px-8 py-12">
-                <Header />
-                <About />
-                <FeaturedProjects />
-                <Skills />
-                <Footer />
-            </div>
+        <div className="flex justify-start items-center sm:items-start flex-col min-h-screen w-full p-4 sm:p-8 bg-ctp-crust gap-6 sm:gap-10">
+            <Header />
+            <About />
+            <Projects />
+            <Footer />
         </div>
     </StrictMode>
 )
