@@ -10,7 +10,7 @@ export function About() {
             <Title text={"About Me"}/>
             <div className={"sm:max-w-3/4"}>
                 <p>
-                    I'm a <p className={"inline bg-amber-950"}>17-year-old</p> programmer living in California.
+                    I'm a <span className={"bg-amber-950"}>17-year-old</span> programmer living in California.
                 </p>
 
                 <br/>
