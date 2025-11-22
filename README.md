@@ -2,13 +2,13 @@
 
 ## What's This?
 
-This repository serves as the code behind my personal website.
+This repository holds the code behind my personal website.
 
 My website serves as a portfolio and a hub for my projects and contact information.
 
 ## Technologies Used
 
-This website also serves as a demonstration of my frontend skills. 
+This website is also a demonstration of my frontend skills. 
 
 Here is a list of technologies used in building this website:
 
