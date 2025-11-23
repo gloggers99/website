@@ -28,40 +28,12 @@ Pages expects this base path to be `/reponame/`, because it assumes the site wil
 
 To get around this, you have to manually change the built `/dist/index.html` file.
 
-Here is the process for deploying this site:
+For the case of my website, I've written a small script (`publish.py`) to do this automatically.
 
 ```shell
-npm run build
-```
-
-Then, open the generated `dist/index.html` file and change the asset URLs to remove the `/website/` part.
-
-```html
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lucas Marta</title>
-    <!-- The URL must not have the /website/ part. -->
-    
-    <!-- <script type="module" crossorigin src="/website/assets/index-ME9-cFQF.js"></script> -->
-    <!-- <link rel="stylesheet" crossorigin href="/website/assets/index-C5mRudEH.css"> -->
-    
-    <!-- Corrected: -->
-    <script type="module" crossorigin src="/assets/index-ME9-cFQF.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-C5mRudEH.css">
-</head>
-<body>
-<div id="root"></div>
-
-</body>
-</html>
-
-```
-
-Then deploy with:
-
-```shell
-npx gh-pages -d dist
+# This will:
+# - Build the website.
+# - Modify the built index.html to have the correct base path. 
+# - Deploy the site using gh-pages node package.
+python publish.py
 ```
