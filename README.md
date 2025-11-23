@@ -2,13 +2,13 @@
 
 ## What's This?
 
-This repository serves as the code behind my personal website.
+This repository holds the code behind my personal website.
 
 My website serves as a portfolio and a hub for my projects and contact information.
 
 ## Technologies Used
 
-This website also serves as a demonstration of my frontend skills. 
+This website is also a demonstration of my frontend skills. 
 
 Here is a list of technologies used in building this website:
 
@@ -27,6 +27,7 @@ Pages expects this base path to be `/reponame/`, because it assumes the site wil
 `https://username.github.io/reponame/` but that `reponame` isn't actually in the URL when using a custom domain.
 
 To get around this, you have to manually change the built `/dist/index.html` file.
+
 
 For the case of my website, I've written a small script (`publish.py`) to do this automatically.
 
