@@ -66,7 +66,7 @@ function Seperator() {
 
 export default function About() {
     return (
-        <div className={"min-h-screen snap-start flex flex-col"}>
+        <div className={"min-h-screen snap-end flex flex-col"}>
             <TextSpan />
             <div className={"flex-1 flex flex-row"}>
                 <div className={"md:flex-1 flex invisible md:visible bg-[url('/ball.jpg')] bg-center bg-cover border-b-2 border-r-2 border-t-2 border-foreground"} />
